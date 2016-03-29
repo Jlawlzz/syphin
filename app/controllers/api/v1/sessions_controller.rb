@@ -6,6 +6,7 @@ class Api::V1::SessionsController < Api::ApiController
     if params[:provider] == 'google'
       session[:google_auth] = GoogleService.user_login(request.env['omniauth.auth'],
                                                        current_user)
+                                                       
       respond_with google_auth.username
     end
   end
